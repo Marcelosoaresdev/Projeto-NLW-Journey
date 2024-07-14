@@ -1,3 +1,10 @@
+@corFonte: #fAfAfA;
+@corBrackgournd: #09090B;
+@fontePrincipal: 'Inter', sans-serif;
+@corButton: #AFF445;
+@corCardBackground: #18181B;
+@corTimer: #A1A1AB;
+
 * {
     margin: 0;
     padding: 0;
@@ -5,9 +12,9 @@
 }
 
 html, input, select, button, option {
-    background-color: #09090B;
-    color: #fAfAfA;
-    font-family: 'Inter', sans-serif;
+    background-color: @corBrackgournd;
+    color: @corFonte;
+    font-family: @fontePrincipal;
     line-height: 120%;
     letter-spacing: -0.02em;
 }
@@ -16,16 +23,15 @@ html, input, select, button, option {
     padding: 40px 20px;
     max-width: 320px;
     margin: auto;
-}
 
-/* form */
-#place {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 22px 16px;
-    font-size: 14px;
-    margin-bottom: 32px;
+    #place {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 22px 16px;
+        font-size: 14px;
+        margin-bottom: 32px;
+    }
 }
 
 input, select {
@@ -39,27 +45,27 @@ input, select, button {
 .fields {
     display: grid;
     gap: 8px;
-}
 
-.field-wrapper {
-    padding: 18px;
-    background-color: #09090B;
-    border: 1px solid #27272A;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    .field-wrapper {
+        padding: 18px;
+        background-color: @corBrackgournd;
+        border: 1px solid #27272A;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
 
-.field-wrapper:focus-within {
-    outline: 2px solid yellowgreen;
+        &:focus-within {
+            outline: 2px solid yellowgreen;
+        }
+    }
 }
 
 button {
     margin-top: 12px;
     border: none;
     padding: 12px 20px;
-    background-color: #AFF445;
+    background-color: @corButton;
     border-radius: 8px;
     font-weight: 500;
     font-size: 16px;
@@ -69,7 +75,7 @@ button {
 }
 
 .card-bg {
-    background: #18181B;
+    background: @corCardBackground;
     box-shadow: 
     0px 8px 8px rgba(0, 0, 0, 0.1), 
     0px 4px 4px rgba(0, 0, 0, 0.1), 
@@ -93,45 +99,45 @@ h1 {
 section {
     display: grid;
     gap: 10px;
+
+    input[type="checkbox"]{
+        inset: 0;
+        position: absolute;
+    }
+
+    .card-bg {
+        padding: 10px 16px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:has(:checked) .active,
+        .inactive{
+            display: block;
 }
 
-section input[type="checkbox"]{
-    inset: 0;
-    position: absolute;
+        &:has(:checked) .inactive,
+        .active{
+            display: none;
 }
 
-section .card-bg {
-    padding: 10px 16px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-section .card-bg:has(:checked) .active,
-section .card-bg .inactive{
-    display: block;
-}
-
-section .card-bg:has(:checked) .inactive,
-section .card-bg .active{
-    display: none;
-}
-
-section .card-bg > div {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+        > div {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+    }
 }
 
 time {
     font-size: 14px;
-    color: #A1A1AB;
+    color: @corTimer;
     text-align: right;
-}
 
-time.full {
-    display: none;
+    &.full {
+        display: none;
+    }
 }
 
 @media (width > 1024px) {
